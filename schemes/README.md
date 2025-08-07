@@ -1,72 +1,10 @@
 # ESQUEMA DE CONEXION DE COMPONENTES
 ====
+<img width="493" height="452" alt="image" src="https://github.com/user-attachments/assets/e6f2bbe1-4a83-4811-a5dc-7ece437ce67e" />
+<img width="539" height="450" alt="image" src="https://github.com/user-attachments/assets/8ac37caf-45d9-4fb4-a365-ae2764108ec4" />
+<img width="499" height="161" alt="image" src="https://github.com/user-attachments/assets/d423534e-e767-432c-8e40-10d6d6fd953c" />
 
-                    ARDUINO UNO
-                 ┌─────────────────┐
-                 │    ATmega328P   │
-                 │                 │
-    SENSOR IZQ   │    DIGITAL      │    SENSOR ADE
-    TRIG ──[4]───┤(2)      (7) ────├───[7]── TRIG
-    ECHO ──[5]───┤(4)      (8) ────├───[8]── ECHO
-                 │                 │
-    SENSOR DER   │    ANALOG       │    HUSKY LENS
-    TRIG ──[3]───┤(3)      (A1)───├───[A1]── TX
-    ECHO ──[2]───┤(2)      (A2)───├───[A2]── RX
-                 │                 │
-                 │    PWM          │    SERVO
-                 │(6)ENA   (9)M2A  │    SIG ──[13]── SIG
-                 │(10)M1A  (13)────├───[13]── VCC
-                 │                 │         GND ── GND
-                 │    POWER        │
-                 │ 5V ─────────────┼───────────┬─── VCC (SENSORS)
-                 │ GND ────────────┼───────────┼─── GND (SENSORS)
-                 └─────────────────┘           │
-                                               │
-                                               │
-    ┌───────────────────────────────────────────┘
-    │
-    ▼
-┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐
-│ SENSOR  │    │ SENSOR  │    │ SENSOR  │    │ HUSKY   │
-│ IZQ     │    │ ADE     │    │ DER     │    │ LENS    │
-│ HC-SR04 │    │ HC-SR04 │    │ HC-SR04 │    │ AI      │
-│         │    │         │    │         │    │         │
-│ VCC─────┼────┼────VCC  │    │ VCC─────┼────┼────VCC  │
-│ GND─────┼────┼────GND  │    │ GND─────┼────┼────GND  │
-│ TRIG  4 │    │ TRIG  7 │    │ TRIG  3 │    │ TX  A2  │
-│ ECHO  5 │    │ ECHO  8 │    │ ECHO  2 │    │ RX  A1  │
-└─────────┘    └─────────┘    └─────────┘    └─────────┘
-
-                          ┌─────────────────────┐
-                          │      SERVO          │
-                          │      SG90           │
-                          │                     │
-                          │  RED    ─── VCC     │
-                          │  BROWN  ─── GND     │
-                          │  ORANGE ─── SIG(13) │
-                          └─────────────────────┘
-
-    ┌─────────────────────────────────────────────────────────────┐
-    │                    L298N MOTOR DRIVER                       │
-    │                                                             │
-    │  INPUTS:        OUTPUTS:                                    │
-    │  ENA ──[6]      Motor A: OUT1, OUT2                         │
-    │  IN1 ──[10]     Motor B: OUT3, OUT4                         │
-    │  IN2 ──[9]                                                  │
-    │                                                             │
-    │  5V  ──── Regulated 5V output (optional)                    │
-    │  GND ──── Common ground                                     │
-    │  12V ──── External power supply (7-12V)                     │
-    └─────────────────────────────────────────────────────────────┘
-
-    POWER SUPPLY:
-    ┌─────────────────────────────────────────────────────────────┐
-    │  BATTERY PACK (7.4V LiPo or 9V battery)                     │
-    │                                                             │
-    │  (+) ──────────────────────────────────────────────────────┤
-    │                                                             │
-    │  (-) ──────────────────────────────────────────────────────┤
-    └─────────────────────────────────────────────────────────────┘
+      
 # DETALLES
 ## 1.- Sensor izquierdo (sensoriz) → Pines 6 y 5
 VCC → 5V
